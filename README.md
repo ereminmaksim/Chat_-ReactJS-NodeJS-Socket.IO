@@ -2,4 +2,6 @@
 
 ![Header](https://webrtc.org.cn/wp-content/uploads/2019/03/socket.io_.jpg)
 
+# start CRA: npm start
+# start Server: node server
 версия для разбора Node.js + Socket.IO
