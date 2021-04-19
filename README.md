@@ -4,5 +4,5 @@
 
 # start Module: npm i
 # start CRA: npm start
-# start Server: node server
+# start Server: nodemon server
 версия для разбора Node.js + Socket.IO
