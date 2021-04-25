@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+.wrapper {
+  max-width: 36%;
+  margin: 15% 40%;
+  min-width: 720px;
+}
+
+
+/*const  useStyles  =  makeStyles ( {*/
+/*table : {*/
+/*  minWidth : 650 ,*/
+/*} ,*/
+/*chatSection : {*/
+/*  ширина : '100%' ,*/
+/*  высота : '80vh'*/
+/*} ,*/
+/*headBG : {*/
+/*  backgroundColor : '# e0e0e0'*/
+/*} ,*/
+/*borderRight500 : {*/
+/*  borderRight : '1px solid # e0e0e0'*/
+/*} ,*/
+/*messageArea : {*/
+/*  высота : '70vh' ,*/
+/*  overflowY : 'авто'*/
+/*}*/
+/*} ) ;*/
+/*const classes = useStyles();*/
