@@ -1,0 +1,30 @@
+
+.table{
+    min-width: 650px
+}
+.chatSection{
+    width: 50%;
+    height: 80vh
+}
+.headBG{
+    background-color: #e0e0e0
+}
+.borderRight500{
+    border-right: 1px solid #e0e0e0
+}
+.messageArea{
+    height: 70vh;
+    overflow-y: auto
+}
+.MuiGrid-grid-xs-3 {
+    flex-grow: 0;
+    max-width: 25%;
+    flex-basis: 25%;
+    border-right: outset;
+}
+.chat-users {
+    border-right: 1px solid rgba(159, 183, 197, 0.1);
+    padding: 20px;
+    width: 80%;
+    background-color: #f6f9fa;
+}
