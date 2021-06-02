@@ -2,8 +2,6 @@
 const express = require('express');
 const app = express();
 
-app.use(express.static("public"));
-
 const cors = require('cors')
 /********************************************************************/
 /**
@@ -36,7 +34,7 @@ app.use(express.json())
 /********************************************************************/
 
 // ДОБАВЛЕНИЕ СТАТИКИ ДЛЯ HEROKU
-// app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, './build')));
 // app.use(express.static("public"));
 // app.use(express.static(path.join(__dirname, './build')));
 
@@ -44,7 +42,7 @@ app.use(express.json())
 /********************************************************************/
 
 //ПИШЕМ ПОРТ ДЛЯ HEROKU
-const PORT = process.env.PORT || 9999;
+const PORT = process.env.PORT || 3001;
 
 
 
