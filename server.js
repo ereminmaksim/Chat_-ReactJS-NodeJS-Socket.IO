@@ -36,8 +36,8 @@ app.use(express.json())
 /********************************************************************/
 
 // ДОБАВЛЕНИЕ СТАТИКИ ДЛЯ HEROKU
-// app.use(express.static(path.join(__dirname, './build')));
-app.use(express.static("build"));
+app.use(express.static(path.join(__dirname, 'build')));
+// app.use(express.static("build"))
 
 /********************************************************************/
 
