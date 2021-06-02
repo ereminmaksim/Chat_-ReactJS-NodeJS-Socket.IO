@@ -31,6 +31,12 @@ app.use(express.json())
 // *--------------app.use(express.urlencoded({extended: true}))--------------*
 
 /********************************************************************/
+
+//ПИШЕМ ПОРТ ДЛЯ HEROKU
+const PORT = process.env.PORT || 9999;
+
+
+
 // хранение массива
 const rooms = new Map()
 /********************************************************************/
@@ -89,7 +95,7 @@ io.on('connection', (socket) => {
     console.log('user connected', socket.id);
 });
 
-server.listen(9999, (err) => {
+server.listen(PORT, (err) => {
     if (err) {
         throw Error(err);
     }
