@@ -1,6 +1,9 @@
 // подключили библиотеку EXPRESS
 const express = require('express');
 const app = express();
+
+app.use(express.static(path.join(__dirname, 'build')));
+
 const cors = require('cors')
 /********************************************************************/
 /**
@@ -33,7 +36,7 @@ app.use(express.json())
 /********************************************************************/
 
 
-
+const PORT = process.env.PORT || 3001;
 
 
 // хранение массива
@@ -94,7 +97,7 @@ io.on('connection', (socket) => {
     console.log('user connected', socket.id);
 });
 
-server.listen(9999, (err) => {
+server.listen(PORT, (err) => {
     if (err) {
         throw Error(err);
     }
