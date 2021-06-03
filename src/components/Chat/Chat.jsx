@@ -12,14 +12,25 @@ import Avatar from '@material-ui/core/Avatar';
 import Fab from '@material-ui/core/Fab';
 import style from './style.css';
 import socket from './../../backEnd/socket';
-    //Установка времени, во время переписки
+//Установка времени, во время переписки
 import moment from 'moment';
 
+//МЕДИА ЗАПРОСЫ ДЛЯ АДАПТИВА
+import {StyleSheet, css} from "aphrodite";
 
 
 const Chat = ({users, messages, userName, roomId, onAddMessage}) => {
     const [messageValue, setMessageValue] = React.useState('');
     const messagesRef = React.useRef(null);
+    //МЕДИА ЗАПРОСЫ ДЛЯ АДАПТИВА
+    const styles = StyleSheet.create({
+        small980: {
+            '@media (max-width: 980px)': {
+                display: 'none',
+            },
+        }
+    });
+
 
     const onSendMessage = () => {
         socket.emit('ROOM:NEW_MESSAGE', {
@@ -53,7 +64,7 @@ const Chat = ({users, messages, userName, roomId, onAddMessage}) => {
             <div className='shell'>
                 <Grid container>
                     <Grid item={true} xs={12}>
-                        <Typography variant="h3" className="header-message" >Chat</Typography>
+                        <Typography variant="h3" className="header-message">Chat</Typography>
                     </Grid>
                 </Grid>
                 <Grid container component={Paper} className={style.chatSection}>
@@ -63,11 +74,13 @@ const Chat = ({users, messages, userName, roomId, onAddMessage}) => {
                             <hr/>
                             <b>Онлайн : {users.length}</b>
                             <hr/>
-                            <ul>
+                            <div className={style.marker}>
+                            <ul >
                                 {users.map((name, index) => (
-                                    <li key={name + index}>{name}</li>
+                                    <li  key={name + index}>{name}</li>
                                 ))}
                             </ul>
+                                </div>
                         </div>
                         <List style={{'height': '10.5%'}}>
                             <ListItem button key="RemySharp">
@@ -77,16 +90,17 @@ const Chat = ({users, messages, userName, roomId, onAddMessage}) => {
                             </ListItem>
                         </List>
                         <Divider/>
-                        <Grid item xs={12} style={{padding: '10px'}}>
-                            <TextField id="outlined-basic-email" label="Search" variant="outlined" fullWidth/>
-                        </Grid>
+                            <Grid item xs={12} style={{padding: '10px'}}>
+                                <TextField id="outlined-basic-email" label="Search" variant="outlined" fullWidth/>
+                            </Grid>
                         <Divider/>
 
-                        <List>
+                        <List className={css(styles.small980)}>
 
                             <ListItem button key="RemySharp">
                                 <ListItemIcon>
-                                    <Avatar alt="Remy Sharp" src="https://material-ui.com/static/images/avatar/1.jpg"/>
+                                    <Avatar alt="PIDARASINARemy Sharp"
+                                            src="https://material-ui.com/static/images/avatar/1.jpg"/>
                                 </ListItemIcon>
                                 <ListItemText primary="Remy Sharp">Remy Sharp</ListItemText>
                                 <ListItemText secondary="online" align="right"/>
@@ -122,8 +136,8 @@ const Chat = ({users, messages, userName, roomId, onAddMessage}) => {
                                         <Grid container>
                                             <Grid item xs={12}>
                                                 <ListItemText className='list-text'
-                                                    align="right"
-                                                    primary={message.text} />
+                                                              align="right"
+                                                              primary={message.text}/>
                                             </Grid>
                                             <Grid item xs={12}>
                                                 <span>{message.userName}</span>
@@ -136,14 +150,17 @@ const Chat = ({users, messages, userName, roomId, onAddMessage}) => {
                                 ))}
                         </List>
                         <Divider/>
-                        <Grid container style={{'padding': '20px', 'marginTop': '17%',}}>
+                        <Grid container
+                              style={{'padding': '20px', 'marginTop': '17%',}}>
                             <Grid item xs={11}>
-                                <TextField value={messageValue}
-                                           onKeyDown={handleKeyPress}
-                                           onChange={(e) => setMessageValue(e.target.value)}
-                                           id="outlined-basic-email#2"
-                                           label="Введите сообщение" fullWidth/>
+                                <TextField
+                                    value={messageValue}
+                                    onKeyDown={handleKeyPress}
+                                    onChange={(e) => setMessageValue(e.target.value)}
+                                    id="outlined-basic-email#2"
+                                    label="Message" fullWidth/>
                             </Grid>
+
                             <Grid item={true} xs={1} align="right">
                                 <Fab onClick={onSendMessage} color="primary" aria-label="add">Send</Fab>
                             </Grid>
