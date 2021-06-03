@@ -1,0 +1,24 @@
+.wrapper{
+    margin-left: 40%;
+    margin-top: 20%
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+  .wrapper {
+    margin-top: 50%;
+    margin-left: 33%;
+  }
+
+}
+
+
+@media screen and (max-width: 425px) {
+  .wrapper {
+    margin-top: 40%;
+    margin-left: 24%;
+  }
+
+}

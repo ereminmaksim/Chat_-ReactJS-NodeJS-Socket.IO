@@ -1,6 +1,8 @@
 import React from 'react';
 import {Button, TextField} from "@material-ui/core";
 import axios from 'axios';
+import style from './MainBlock.module.css';
+
 
 
 
@@ -35,7 +37,7 @@ const MainBlock = ({ onLogin }) => {
     /**********************************************************************/
 
     return (
-        <div className='wrapper'>
+        <div className={style.wrapper}>
             <div className='joinBlock'>
                 <TextField style={{'backgroundColor': "white"}}
                     id="outlined-basic2"
