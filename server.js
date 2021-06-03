@@ -1,8 +1,9 @@
 // подключили библиотеку EXPRESS
 const express = require('express');
+const path = require('path');
 const app = express();
 
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, './public')));
 
 const cors = require('cors')
 /********************************************************************/
@@ -36,7 +37,7 @@ app.use(express.json())
 /********************************************************************/
 
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 9999;
 
 
 // хранение массива
