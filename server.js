@@ -1,7 +1,6 @@
 // подключили библиотеку EXPRESS
 const express = require('express');
 const app = express();
-
 const cors = require('cors')
 /********************************************************************/
 /**
@@ -33,16 +32,7 @@ app.use(express.json())
 
 /********************************************************************/
 
-// ДОБАВЛЕНИЕ СТАТИКИ ДЛЯ HEROKU
-app.use(express.static(path.join(__dirname, './build')));
-// app.use(express.static("public"));
-// app.use(express.static(path.join(__dirname, './build')));
 
-
-/********************************************************************/
-
-//ПИШЕМ ПОРТ ДЛЯ HEROKU
-const PORT = process.env.PORT || 3001;
 
 
 
@@ -104,7 +94,7 @@ io.on('connection', (socket) => {
     console.log('user connected', socket.id);
 });
 
-server.listen(PORT, (err) => {
+server.listen(9999, (err) => {
     if (err) {
         throw Error(err);
     }
