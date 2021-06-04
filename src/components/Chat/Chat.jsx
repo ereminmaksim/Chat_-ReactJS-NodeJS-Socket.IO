@@ -10,7 +10,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Avatar from '@material-ui/core/Avatar';
 import Fab from '@material-ui/core/Fab';
-import style from './Chat.module.css';
+import style from './style.css';
 import socket from './../../backEnd/socket';
 //Установка времени, во время переписки
 import moment from 'moment';
