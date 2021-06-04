@@ -89,10 +89,10 @@ const Chat = ({users, messages, userName, roomId, onAddMessage}) => {
                                 </ListItemIcon>
                             </ListItem>
                         </List>
-                        <Divider/>
-                            <Grid item xs={12} style={{padding: '10px'}}>
-                                <TextField id="outlined-basic-email" label="Search" variant="outlined" fullWidth/>
-                            </Grid>
+                        <Divider />
+                            {/*<Grid  item xs={12} style={{padding: '10px'}}>*/}
+                            {/*    <TextField id="outlined-basic-email" label="Search" variant="outlined" fullWidth/>*/}
+                            {/*</Grid>*/}
                         <Divider/>
 
                         <List className={css(styles.small980)}>
