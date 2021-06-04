@@ -96,7 +96,6 @@
         flex-grow: 0;
         max-width: 73.666667%;
     }
-
 }
 
 @media screen and (max-width: 425px) {
@@ -143,11 +142,15 @@
          width: 69%;
          font-size: 13px;
      }
-     .blockNone {
-         display: none;
-     }
  }
 
+ @media screen and (max-width: 375px) {
+     .chat-users {
+         width: 65%;
+         font-size: 13px;
+         height: 51.2%;
+     }
+ }
 
 
 
