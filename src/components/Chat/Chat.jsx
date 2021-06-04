@@ -18,6 +18,10 @@ import moment from 'moment';
 //МЕДИА ЗАПРОСЫ ДЛЯ АДАПТИВА
 import {StyleSheet, css} from "aphrodite";
 
+//ЗВУК СООБЩЕНИЯ
+import useSound from 'use-sound'
+import boopSfx from './../../music/sms_uvedomlenie_na_iphone.mp3'
+
 
 const Chat = ({users, messages, userName, roomId, onAddMessage}) => {
     const [messageValue, setMessageValue] = React.useState('');
@@ -43,13 +47,7 @@ const Chat = ({users, messages, userName, roomId, onAddMessage}) => {
         setMessageValue('');
     };
 
-// Работа c ENTER
-    const handleKeyPress = (event) => {
-        if (event.key === "Enter") {
-            return onSendMessage()
-        }
 
-    }
     // при вводе сообщения скролл пролистывается вниз. ВАЖНО!!!
     React.useEffect(() => {
         messagesRef.current.scrollTo(0, 999999)
@@ -57,6 +55,21 @@ const Chat = ({users, messages, userName, roomId, onAddMessage}) => {
 
     //Установка хранометража времени!!!
     const timeOfCorr = moment().format("YYYY-MM-DD HH:mm");
+
+    //Установка звука отправки сообщения!!!
+    let [play] = useSound(boopSfx);
+
+    // Работа c ENTER
+    let handleKeyPress = (event) => {
+        if (event.key === "Enter") {
+            return onSendMessage(),
+            play()
+
+
+
+        }
+    }
+
 
 
     return (
@@ -75,12 +88,12 @@ const Chat = ({users, messages, userName, roomId, onAddMessage}) => {
                             <b>Онлайн : {users.length}</b>
                             <hr/>
                             <div className={style.marker}>
-                            <ul >
-                                {users.map((name, index) => (
-                                    <li  key={name + index}>{name}</li>
-                                ))}
-                            </ul>
-                                </div>
+                                <ul>
+                                    {users.map((name, index) => (
+                                        <li key={name + index}>{name}</li>
+                                    ))}
+                                </ul>
+                            </div>
                         </div>
                         <List style={{'height': '10.5%'}}>
                             <ListItem button key="RemySharp">
@@ -89,10 +102,10 @@ const Chat = ({users, messages, userName, roomId, onAddMessage}) => {
                                 </ListItemIcon>
                             </ListItem>
                         </List>
-                        <Divider />
-                            {/*<Grid  item xs={12} style={{padding: '10px'}}>*/}
-                            {/*    <TextField id="outlined-basic-email" label="Search" variant="outlined" fullWidth/>*/}
-                            {/*</Grid>*/}
+                        <Divider/>
+                        {/*<Grid  item xs={12} style={{padding: '10px'}}>*/}
+                        {/*    <TextField id="outlined-basic-email" label="Search" variant="outlined" fullWidth/>*/}
+                        {/*</Grid>*/}
                         <Divider/>
 
                         <List className={css(styles.small980)}>
@@ -162,7 +175,12 @@ const Chat = ({users, messages, userName, roomId, onAddMessage}) => {
                             </Grid>
 
                             <Grid item={true} xs={1} align="right">
-                                <Fab onClick={onSendMessage} color="primary" aria-label="add">Send</Fab>
+
+                                <Fab onClick={() => {
+                                onSendMessage()
+                                play()
+                            }}  color="primary"
+                                     aria-label="add">Send</Fab>
                             </Grid>
                         </Grid>
                     </Grid>
